@@ -1,14 +1,8 @@
 let str = ReasonReact.stringToElement;
 
-let mockList: list(Element.element) = [
-  {id: 0, name: "First Element", number: 1},
-  {id: 1, name: "Second Element", number: 2},
-  {id: 2, name: "Third Element", number: 3}
-];
-
 let component = ReasonReact.statelessComponent("ListOfElements");
 
-let make = (_) => {
+let make = (_, ~elementsList) => {
   ...component,
   render: (_) =>
     <div>
@@ -22,7 +16,7 @@ let make = (_) => {
                   elementName=element.name
                   elementNumber=element.number
                 />,
-              mockList
+              elementsList
             )
           )
         )
