@@ -1,0 +1,5 @@
+[
+  {"id": 0, "name": "First Element from service", "number": 1},
+  {"id": 1, "name": "Second Element from service", "number": 2},
+  {"id": 2, "name": "Third Element from service", "number": 3}
+]

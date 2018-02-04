@@ -4,6 +4,8 @@
     "refmt": 3,
     "bs-dependencies": [
       "reason-react",
+      "bs-json",
+      "bs-fetch"
     ],
     "package-specs" : [{
       "module": "commonjs",

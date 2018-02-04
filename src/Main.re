@@ -10,3 +10,18 @@ ReactDOMRe.renderToElementWithId(
   <ListOfElements elementsList=mockList />,
   "listOfElements"
 );
+
+let render = data : unit =>
+  ReactDOMRe.renderToElementWithId(
+    <ListOfElements elementsList=data />,
+    "listOfElementsFromServer"
+  );
+
+let renderServerElement = () =>
+  GetData.get()
+  |> Js.Promise.then_(result_promise => {
+       render(result_promise);
+       Js.Promise.resolve();
+     });
+
+renderServerElement();
