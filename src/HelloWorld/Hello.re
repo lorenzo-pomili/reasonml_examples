@@ -1,8 +1,8 @@
 let str = ReasonReact.stringToElement;
 
-let component = ReasonReact.statelessComponent("Main");
+let component = ReasonReact.statelessComponent("Hello");
 
-let make = children => {
+let make = (_) => {
   ...component,
-  render: self => <div> (str("Hello world!")) </div>
+  render: (_) => <div> (str("Hello world!")) </div>
 };
