@@ -10,6 +10,7 @@
       "in-source": true
     }],
     "sources": [{
-      "dir": "src"
+      "dir": "src",
+      "subdirs": true
     }]
 }
