@@ -18,10 +18,15 @@ let render = data : unit =>
   );
 
 let renderServerElement = () =>
-  GetData.get()
+  DataService.get()
   |> Js.Promise.then_(result_promise => {
        render(result_promise);
        Js.Promise.resolve();
      });
 
 renderServerElement();
+
+ReactDOMRe.renderToElementWithId(
+  <SetAndGetElementsInService />,
+  "setAndGetElementsInService"
+);

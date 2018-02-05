@@ -3,16 +3,45 @@ const express = require('express');
 const app = express();
 
 const filepath = __dirname+"/mockData.json";
+const filepathStorage = __dirname+"/dataStorage.json";
 
 app.use("/", express.static(__dirname + '/../public'));
 
-app.get('/getData', (request, response) => {
-  fs.readFile(filepath, function (err, data) {
+const getData = (request, response, path) => {
+  fs.readFile(path, function (err, data) {
     if(err){
       throw err;
     }
     console.log("getData: ", JSON.stringify(data));
     response.json(JSON.parse(data));
+  });
+}
+
+app.get('/getData', (request, response) => {
+   getData(request, response, filepath);
+});
+
+app.get('/getDataStorage', (request, response) => {
+  getData(request, response, filepathStorage);
+});
+
+const writeFile = (filepath, fileContent) => {
+  fs.writeFile(filepath, JSON.stringify(fileContent), (err) => {
+    if (err) throw err;
+
+    console.log("The file was succesfully saved!");
+  });
+};
+
+app.post('/setData', (req, res) => {
+  let bodyStr = '';
+  req.on("data",function(chunk){
+      bodyStr += chunk.toString();
+  });
+  req.on("end",function(){
+      console.log(bodyStr);
+      writeFile(filepathStorage, JSON.parse(bodyStr));
+      res.send(bodyStr);
   });
 });
 
