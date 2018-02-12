@@ -30,3 +30,14 @@ ReactDOMRe.renderToElementWithId(
   <SetAndGetElementsInService />,
   "setAndGetElementsInService"
 );
+
+let mockTodoElementList: list(TodoElement.todoElement) = [
+  {id: 0, pos: 1, desc: "001", isDone: false},
+  {id: 1, pos: 2, desc: "002", isDone: true},
+  {id: 2, pos: 3, desc: "003", isDone: false}
+];
+
+ReactDOMRe.renderToElementWithId(
+  <TodoList elementList=mockTodoElementList />,
+  "mixedLangTodoList"
+);

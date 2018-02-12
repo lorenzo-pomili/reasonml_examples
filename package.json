@@ -11,6 +11,10 @@
     "reason-react": "0.3.1"
   },
   "devDependencies": {
+    "babel-core": "6.26.0",
+    "babel-loader": "7.1.2",
+    "babel-preset-es2015": "6.24.1",
+    "babel-preset-react": "6.24.1",
     "bs-fetch": "0.2.1",
     "bs-json": "1.0.1",
     "bs-loader": "2.0.1",
