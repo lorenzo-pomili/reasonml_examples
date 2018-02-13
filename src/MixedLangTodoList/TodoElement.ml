@@ -40,6 +40,9 @@ let max_to_check desc str =
 
 let desc_contain_str desc str =
   let max = max_to_check desc str in
+  if max < 0 then
+    false
+  else
   let rec aux current =
     match (current = max) with
     | true when (String.sub desc current (String.length str)) = str -> true

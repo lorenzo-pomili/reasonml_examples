@@ -5,7 +5,8 @@
     "bs-dependencies": [
       "reason-react",
       "bs-json",
-      "bs-fetch"
+      "bs-fetch",
+      "bs-jest"
     ],
     "package-specs" : [{
       "module": "commonjs",
@@ -13,6 +14,9 @@
     }],
     "sources": [{
       "dir": "src",
+      "subdirs": true
+    },{
+      "dir": "__test__",
       "subdirs": true
     }]
 }
