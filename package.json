@@ -3,7 +3,8 @@
   "scripts": {
     "start": "webpack -w",
     "build": "bsb -make-world -w",
-    "clean": "bsb -clean-world"
+    "clean": "bsb -clean-world",
+    "test": "bsb -make-world && ./node_modules/jest/bin/jest.js"
   },
   "dependencies": {
     "react": "15.6.2",
