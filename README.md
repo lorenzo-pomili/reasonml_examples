@@ -24,6 +24,8 @@ from main directory:
 
 **REMOVE FROM GENERATED .JS**
 
+from main directory:
+
 ```
   nvm use
   npm run clean
