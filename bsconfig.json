@@ -18,5 +18,6 @@
     },{
       "dir": "__test__",
       "subdirs": true
-    }]
+    }],
+    "suffix": ".bs.js"
 }
