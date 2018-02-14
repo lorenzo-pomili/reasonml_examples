@@ -4,6 +4,7 @@ from main directory:
 
 ```
   nvm use
+  npm install
   npm start
 ```
 
