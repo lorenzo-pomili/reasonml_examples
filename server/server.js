@@ -46,3 +46,4 @@ app.post('/setData', (req, res) => {
 });
 
 app.listen(8014);
+console.log("App served on: http://localhost:8014");
