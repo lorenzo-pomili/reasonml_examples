@@ -9,8 +9,8 @@ let make = (_, ~elementList) => {
       (
         str(
           "Number of items filtered: "
-          ++ string_of_int(TodoElement.get_length(elementList))
+          ++ string_of_int(TodoElement.get_length(elementList)),
         )
       )
-    </div>
+    </div>,
 };

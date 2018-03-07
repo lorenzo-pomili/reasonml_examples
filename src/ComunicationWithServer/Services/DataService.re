@@ -20,10 +20,10 @@ let set = elementsList =>
         ~method_=Post,
         ~body=
           Fetch.BodyInit.make(
-            Json.stringify(Element.Encode.to_element_list(elementsList))
+            Json.stringify(Element.Encode.to_element_list(elementsList)),
           ),
-        ()
-      )
+        (),
+      ),
     )
     |> resolve
   );

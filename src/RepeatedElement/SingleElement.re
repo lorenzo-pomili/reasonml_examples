@@ -11,8 +11,8 @@ let make = (_, ~elementName, ~elementNumber) => {
           "this element named: "
           ++ elementName
           ++ " and is element number: "
-          ++ string_of_int(elementNumber)
+          ++ string_of_int(elementNumber),
         )
       )
-    </div>
+    </div>,
 };

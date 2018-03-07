@@ -5,5 +5,5 @@ let make = (~onUpdate, children) =>
   ReasonReact.wrapJsForReason(
     ~reactClass=todoListFilter,
     ~props={"onUpdate": onUpdate},
-    children
+    children,
   );

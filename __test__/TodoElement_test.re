@@ -16,18 +16,22 @@ let () =
       |> ExpectJs.toEqual(false)
     );
     test("should return true if first param and second is the same", () =>
-      ExpectJs.expect(desc_contain_str("abc", "abc")) |> ExpectJs.toEqual(true)
+      ExpectJs.expect(desc_contain_str("abc", "abc"))
+      |> ExpectJs.toEqual(true)
     );
     test(
       "should return true if second param is contained in first one (0)", () =>
-      ExpectJs.expect(desc_contain_str("abc", "a")) |> ExpectJs.toEqual(true)
+      ExpectJs.expect(desc_contain_str("abc", "a"))
+      |> ExpectJs.toEqual(true)
     );
     test(
       "should return true if second param is contained in first one (1)", () =>
-      ExpectJs.expect(desc_contain_str("abc", "b")) |> ExpectJs.toEqual(true)
+      ExpectJs.expect(desc_contain_str("abc", "b"))
+      |> ExpectJs.toEqual(true)
     );
     test(
       "should return true if second param is contained in first one (2)", () =>
-      ExpectJs.expect(desc_contain_str("abc", "c")) |> ExpectJs.toEqual(true)
+      ExpectJs.expect(desc_contain_str("abc", "c"))
+      |> ExpectJs.toEqual(true)
     );
   });

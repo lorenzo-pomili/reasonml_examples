@@ -4,7 +4,7 @@ type state = {
   filter: string,
   newElementDesc: string,
   elementList: list(TodoElement.todoElement),
-  filteredElementList: list(TodoElement.todoElement)
+  filteredElementList: list(TodoElement.todoElement),
 };
 
 let reactElementList = (elementList: list(TodoElement.todoElement)) =>
@@ -12,11 +12,12 @@ let reactElementList = (elementList: list(TodoElement.todoElement)) =>
     element =>
       <TodoListElement
         key=(
-          "singleTodoElementKey_" ++ string_of_int(TodoElement.get_id(element))
+          "singleTodoElementKey_"
+          ++ string_of_int(TodoElement.get_id(element))
         )
         todoElement=element
       />,
-    elementList
+    elementList,
   );
 
 type action =
@@ -34,10 +35,10 @@ let make = (_, ~elementList) => {
     filter: "",
     newElementDesc: "",
     elementList,
-    filteredElementList: elementList
+    filteredElementList: elementList,
   },
   reducer: (action, state) =>
-    switch action {
+    switch (action) {
     | UpdateNewElementDesc(desc) =>
       ReasonReact.Update({...state, newElementDesc: desc})
     | AddElement =>
@@ -47,22 +48,23 @@ let make = (_, ~elementList) => {
         elementList:
           TodoElement.new_element_in_list(
             ~element_list=state.elementList,
-            ~desc=state.newElementDesc
+            ~desc=state.newElementDesc,
           ),
         filteredElementList:
           TodoElement.filter_list(
             TodoElement.new_element_in_list(
               ~element_list=state.elementList,
-              ~desc=state.newElementDesc
+              ~desc=state.newElementDesc,
             ),
-            state.filter
-          )
+            state.filter,
+          ),
       })
     | UpdateFilter(filter) =>
       ReasonReact.Update({
         ...state,
         filter,
-        filteredElementList: TodoElement.filter_list(state.elementList, filter)
+        filteredElementList:
+          TodoElement.filter_list(state.elementList, filter),
       })
     },
   render: self =>
@@ -71,7 +73,7 @@ let make = (_, ~elementList) => {
       <TodoListFilterRe onUpdate=(onFilterUpdate(self.send)) />
       (
         ReasonReact.arrayToElement(
-          Array.of_list(reactElementList(self.state.filteredElementList))
+          Array.of_list(reactElementList(self.state.filteredElementList)),
         )
       )
       <div>
@@ -83,12 +85,14 @@ let make = (_, ~elementList) => {
             event =>
               self.send(
                 UpdateNewElementDesc(
-                  ReactDOMRe.domElementToObj(ReactEventRe.Form.target(event))##value
-                )
+                  ReactDOMRe.domElementToObj(ReactEventRe.Form.target(event))##value,
+                ),
               )
           )
         />
-        <button onClick=((_) => self.send(AddElement))> (str("Add")) </button>
+        <button onClick=((_) => self.send(AddElement))>
+          (str("Add"))
+        </button>
       </div>
-    </div>
+    </div>,
 };

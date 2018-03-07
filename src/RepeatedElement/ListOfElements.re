@@ -16,10 +16,10 @@ let make = (_, ~elementsList) => {
                   elementName=element.name
                   elementNumber=element.number
                 />,
-              elementsList
-            )
-          )
+              elementsList,
+            ),
+          ),
         )
       )
-    </div>
+    </div>,
 };

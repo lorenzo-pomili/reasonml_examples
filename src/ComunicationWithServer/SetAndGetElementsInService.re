@@ -3,11 +3,11 @@ let str = ReasonReact.stringToElement;
 type state = {
   data: list(Element.element),
   dataStorage: list(Element.element),
-  currentInput: string
+  currentInput: string,
 };
 
 let valueOfEvent = event => ReactDOMRe.domElementToObj(
-                              ReactEventRe.Form.target(event)
+                              ReactEventRe.Form.target(event),
                             )##value;
 
 type action =
@@ -36,7 +36,7 @@ let make = (_) => {
   ...component,
   initialState: () => {data: [], dataStorage: [], currentInput: ""},
   reducer: (action, state) =>
-    switch action {
+    switch (action) {
     | Add(text) =>
       ReasonReact.Update({
         ...state,
@@ -47,9 +47,9 @@ let make = (_) => {
             Element.makeElement(
               getNewId(state.data),
               text,
-              getNewNumber(state.data)
-            )
-          ]
+              getNewNumber(state.data),
+            ),
+          ],
       })
     | UpdateInput(text) => ReasonReact.Update({...state, currentInput: text})
     | Save(elements_list) =>
@@ -89,5 +89,5 @@ let make = (_) => {
         </button>
         <ListOfElements elementsList=self.state.dataStorage />
       </div>
-    </div>
+    </div>,
 };
