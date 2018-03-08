@@ -81,6 +81,14 @@ let make = (_, ~elementList) => {
           placeholder="Insert new item"
           _type="text"
           value=self.state.newElementDesc
+          onKeyPress=(
+            e =>
+              if (ReactEventRe.Keyboard.key(e) === "Enter") {
+                self.send(AddElement);
+              } else {
+                ();
+              }
+          )
           onChange=(
             event =>
               self.send(
