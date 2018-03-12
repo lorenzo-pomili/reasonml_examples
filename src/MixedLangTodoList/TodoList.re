@@ -5,6 +5,7 @@ type state = {
   newElementDesc: string,
   elementList: list(TodoElement.todoElement),
   filteredElementList: list(TodoElement.todoElement),
+  searchFilterRef: ref(option(ReasonReact.reactRef)),
 };
 
 let reactElementList = (elementList: list(TodoElement.todoElement)) =>
@@ -29,6 +30,9 @@ let onFilterUpdate = (send, newFilter) => send(UpdateFilter(newFilter));
 
 let component = ReasonReact.reducerComponent("TodoList");
 
+let setSearchFilterRef = (r, {ReasonReact.state}) =>
+  state.searchFilterRef := Js.Nullable.toOption(r);
+
 let make = (_, ~elementList) => {
   ...component,
   initialState: () => {
@@ -36,6 +40,7 @@ let make = (_, ~elementList) => {
     newElementDesc: "",
     elementList,
     filteredElementList: elementList,
+    searchFilterRef: ref(None),
   },
   reducer: (action, state) =>
     switch (action) {
@@ -70,7 +75,10 @@ let make = (_, ~elementList) => {
   render: self =>
     <div>
       <TodoCounter elementList=self.state.filteredElementList />
-      <TodoListFilterRe onUpdate=(onFilterUpdate(self.send)) />
+      <TodoListFilterRe
+        ref=(self.handle(setSearchFilterRef))
+        onUpdate=(onFilterUpdate(self.send))
+      />
       (
         ReasonReact.arrayToElement(
           Array.of_list(reactElementList(self.state.filteredElementList)),
@@ -81,10 +89,18 @@ let make = (_, ~elementList) => {
           placeholder="Insert new item"
           _type="text"
           value=self.state.newElementDesc
-          onKeyPress=(
+          onKeyDown=(
             e =>
               if (ReactEventRe.Keyboard.key(e) === "Enter") {
                 self.send(AddElement);
+              } else if (ReactEventRe.Keyboard.key(e) === "Escape") {
+                switch (self.state.searchFilterRef^) {
+                | None => ()
+                | Some(r) =>
+                  let node =
+                    ReactDOMRe.domElementToObj(ReactDOMRe.findDOMNode(r));
+                  ignore(node##focus());
+                };
               } else {
                 ();
               }
