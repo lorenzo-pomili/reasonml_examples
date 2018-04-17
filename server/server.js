@@ -45,5 +45,9 @@ app.post('/setData', (req, res) => {
   });
 });
 
+app.all("*", function(req, res){
+    res.sendfile('index.html', { root: __dirname + '/../public' } );
+});
+
 app.listen(8014);
 console.log("App served on: http://localhost:8014");

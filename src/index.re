@@ -1,5 +1,3 @@
-/* Js.log("index");
-   ReactDOMRe.renderToElementWithId(<Main />, "root"); */
 module IndexWrapper = {
   open ReasonReact;
   type state = {currentContent: reactElement};
@@ -8,7 +6,12 @@ module IndexWrapper = {
   let component = ReasonReact.reducerComponent("Index");
   let make = (_) => {
     ...component,
-    initialState: () => {currentContent: <Main />},
+    initialState: () => {
+      currentContent:
+        MyRouter.getPageFromPath(
+          ReasonReact.Router.dangerouslyGetInitialUrl().path,
+        ),
+    },
     render: self =>
       <div className="app">
         <h1> (stringToElement("Index wrapper")) </h1>
