@@ -70,15 +70,13 @@ let make = (_) => {
           onChange=(event => self.send(UpdateInput(valueOfEvent(event))))
         />
         <button
-          disabled=(Js.Boolean.to_js_boolean(self.state.currentInput == ""))
+          disabled=(self.state.currentInput == "")
           onClick=(_event => self.send(Add(self.state.currentInput)))>
           (str("Add"))
         </button>
         <ListOfElements elementsList=self.state.data />
         <button
-          disabled=(
-            Js.Boolean.to_js_boolean(List.length(self.state.data) == 0)
-          )
+          disabled=(List.length(self.state.data) == 0)
           onClick=(_event => self.send(Save(self.state.data)))>
           (str("Save"))
         </button>

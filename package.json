@@ -20,7 +20,7 @@
     "bs-jest": "0.3.2",
     "bs-json": "1.0.1",
     "bs-loader": "2.0.1",
-    "bs-platform": "2.2.3",
+    "bs-platform": "3.0.0",
     "express": "4.16.2",
     "webpack": "3.10.0"
   }
