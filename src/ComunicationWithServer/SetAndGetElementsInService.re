@@ -1,4 +1,4 @@
-let str = ReasonReact.stringToElement;
+let str = ReasonReact.string;
 
 type state = {
   data: list(Element.element),

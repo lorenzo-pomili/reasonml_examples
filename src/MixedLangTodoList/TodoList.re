@@ -1,4 +1,4 @@
-let str = ReasonReact.stringToElement;
+let str = ReasonReact.string;
 
 type state = {
   filter: string,
@@ -80,7 +80,7 @@ let make = (_, ~elementList) => {
         onUpdate=(onFilterUpdate(self.send))
       />
       (
-        ReasonReact.arrayToElement(
+        ReasonReact.array(
           Array.of_list(reactElementList(self.state.filteredElementList)),
         )
       )

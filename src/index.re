@@ -14,7 +14,7 @@ module IndexWrapper = {
     },
     render: self =>
       <div className="app">
-        <h1> (stringToElement("Index wrapper")) </h1>
+        <h1> (string("Index wrapper")) </h1>
         <div> self.state.currentContent </div>
       </div>,
     reducer: (action, _) =>

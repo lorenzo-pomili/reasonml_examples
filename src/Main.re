@@ -53,7 +53,7 @@ let goToSecondPage = (_) => ReasonReact.Router.push("/secondPage");
 let goToSecondPageWithParams = (_) =>
   ReasonReact.Router.push("/secondPage/this is phrase test/42");
 
-let str = ReasonReact.stringToElement;
+let str = ReasonReact.string;
 
 let component = ReasonReact.reducerComponent("Main");
 

@@ -1,6 +1,6 @@
 open ReasonReact;
 
-let str = stringToElement;
+let str = string;
 
 let component = statelessComponent("SecondPage");
 
@@ -12,7 +12,7 @@ let make = (_, ~phrase, ~num) => {
       ReasonReact.Router.push("/");
     };
     <div>
-      <h1> (stringToElement("SecondPage")) </h1>
+      <h1> (string("SecondPage")) </h1>
       <div>
         <span> (str("Phrase: ")) </span>
         <span> (str(phrase)) </span>
@@ -21,7 +21,7 @@ let make = (_, ~phrase, ~num) => {
         <span> (str("Num: ")) </span>
         <span> (str(string_of_int(num))) </span>
       </div>
-      <a href="#" onClick=gotoHome> (stringToElement("Home")) </a>
+      <a href="#" onClick=gotoHome> (string("Home")) </a>
     </div>;
   },
 };

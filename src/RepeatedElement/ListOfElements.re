@@ -1,4 +1,4 @@
-let str = ReasonReact.stringToElement;
+let str = ReasonReact.string;
 
 let component = ReasonReact.statelessComponent("ListOfElements");
 
@@ -7,7 +7,7 @@ let make = (_, ~elementsList) => {
   render: (_) =>
     <div>
       (
-        ReasonReact.arrayToElement(
+        ReasonReact.array(
           Array.of_list(
             List.map(
               (element: Element.element) =>
