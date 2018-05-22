@@ -4,7 +4,7 @@
     "refmt": 3,
     "bs-dependencies": [
       "reason-react",
-      "bs-json",
+      "@glennsl/bs-json",
       "bs-fetch",
       "bs-jest"
     ],
