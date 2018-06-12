@@ -4,7 +4,7 @@ let component = ReasonReact.statelessComponent("ListOfElements");
 
 let make = (_, ~elementsList) => {
   ...component,
-  render: (_) =>
+  render: _ =>
     <div>
       (
         ReasonReact.array(

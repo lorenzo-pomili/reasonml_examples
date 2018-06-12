@@ -48,16 +48,16 @@ type state = {
   dataForListOfElementsFromServer: option(list(Element.element)),
 };
 
-let goToSecondPage = (_) => ReasonReact.Router.push("/secondPage");
+let goToSecondPage = _ => ReasonReact.Router.push("/secondPage");
 
-let goToSecondPageWithParams = (_) =>
+let goToSecondPageWithParams = _ =>
   ReasonReact.Router.push("/secondPage/this is phrase test/42");
 
 let str = ReasonReact.string;
 
 let component = ReasonReact.reducerComponent("Main");
 
-let make = (_) => {
+let make = _ => {
   ...component,
   initialState: () => {dataForListOfElementsFromServer: None},
   reducer: (action, _) =>

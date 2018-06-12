@@ -114,9 +114,7 @@ let make = (_, ~elementList) => {
               )
           )
         />
-        <button onClick=((_) => self.send(AddElement))>
-          (str("Add"))
-        </button>
+        <button onClick=(_ => self.send(AddElement))> (str("Add")) </button>
       </div>
     </div>,
 };

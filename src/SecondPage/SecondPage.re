@@ -6,7 +6,7 @@ let component = statelessComponent("SecondPage");
 
 let make = (_, ~phrase, ~num) => {
   ...component,
-  render: (_) => {
+  render: _ => {
     let gotoHome = event => {
       ReactEventRe.Mouse.preventDefault(event);
       ReasonReact.Router.push("/");

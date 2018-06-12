@@ -32,7 +32,7 @@ let getStoredData = send =>
 
 let component = ReasonReact.reducerComponent("SetAndGetItemInService");
 
-let make = (_) => {
+let make = _ => {
   ...component,
   initialState: () => {data: [], dataStorage: [], currentInput: ""},
   reducer: (action, state) =>

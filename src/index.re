@@ -4,7 +4,7 @@ module IndexWrapper = {
   type action =
     | ContentChanged(reactElement);
   let component = ReasonReact.reducerComponent("Index");
-  let make = (_) => {
+  let make = _ => {
     ...component,
     initialState: () => {
       currentContent:

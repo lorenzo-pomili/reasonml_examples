@@ -4,7 +4,7 @@ let component = ReasonReact.statelessComponent("TodoCounter");
 
 let make = (_, ~elementList) => {
   ...component,
-  render: (_) =>
+  render: _ =>
     <div>
       (
         str(

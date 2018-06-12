@@ -4,7 +4,7 @@ let component = ReasonReact.statelessComponent("SingleElement");
 
 let make = (_, ~elementName, ~elementNumber) => {
   ...component,
-  render: (_) =>
+  render: _ =>
     <div>
       (
         str(
