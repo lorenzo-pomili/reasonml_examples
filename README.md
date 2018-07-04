@@ -25,7 +25,7 @@ from main directory:
   npm run test
 ```
 
-**REMOVE FROM GENERATED .JS**
+**REMOVE GENERATED .JS**
 
 from main directory:
 
