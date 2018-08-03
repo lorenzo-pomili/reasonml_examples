@@ -4,6 +4,7 @@ module.exports = {
     path: __dirname + '/public',
     filename: 'bundle.js'
   },
+  mode: "development",
   module: {
     rules: [
       // Set up Reason and OCaml files to use the loader
