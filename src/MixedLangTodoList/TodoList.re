@@ -87,13 +87,13 @@ let make = (_, ~elementList) => {
       <div>
         <input
           placeholder="Insert new item"
-          _type="text"
+          type_="text"
           value=self.state.newElementDesc
           onKeyDown=(
             e =>
-              if (ReactEventRe.Keyboard.key(e) === "Enter") {
+              if (ReactEvent.Keyboard.key(e) === "Enter") {
                 self.send(AddElement);
-              } else if (ReactEventRe.Keyboard.key(e) === "Escape") {
+              } else if (ReactEvent.Keyboard.key(e) === "Escape") {
                 switch (self.state.searchFilterRef^) {
                 | None => ()
                 | Some(r) =>
@@ -108,9 +108,7 @@ let make = (_, ~elementList) => {
           onChange=(
             event =>
               self.send(
-                UpdateNewElementDesc(
-                  ReactDOMRe.domElementToObj(ReactEventRe.Form.target(event))##value,
-                ),
+                UpdateNewElementDesc(ReactEvent.Form.target(event)##value),
               )
           )
         />

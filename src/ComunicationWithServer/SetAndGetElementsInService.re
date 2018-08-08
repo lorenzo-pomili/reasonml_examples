@@ -6,9 +6,7 @@ type state = {
   currentInput: string,
 };
 
-let valueOfEvent = event => ReactDOMRe.domElementToObj(
-                              ReactEventRe.Form.target(event),
-                            )##value;
+let valueOfEvent = event => ReactEvent.Form.target(event)##value;
 
 type action =
   | UpdateInput(string)
@@ -21,7 +19,7 @@ let getNewId = data => List.length(data);
 
 let getNewNumber = data => List.length(data) + 1;
 
-let save = elements_list : unit => DataService.set(elements_list) |> ignore;
+let save = elements_list: unit => DataService.set(elements_list) |> ignore;
 
 let getStoredData = send =>
   DataService.getStorage()
@@ -65,7 +63,7 @@ let make = _ => {
       <div>
         <div> (str("Add element")) </div>
         <input
-          _type="text"
+          type_="text"
           value=self.state.currentInput
           onChange=(event => self.send(UpdateInput(valueOfEvent(event))))
         />

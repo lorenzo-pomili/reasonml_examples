@@ -6,6 +6,11 @@ module IndexWrapper = {
   let component = ReasonReact.reducerComponent("Index");
   let make = _ => {
     ...component,
+    didMount: self => {
+      let watcherId = MyRouter.init(el => self.send(ContentChanged(el)));
+
+      self.onUnmount(() => MyRouter.destroy(watcherId));
+    },
     initialState: () => {
       currentContent:
         MyRouter.getPageFromPath(
@@ -21,12 +26,6 @@ module IndexWrapper = {
       switch (action) {
       | ContentChanged(el) => ReasonReact.Update({currentContent: el})
       },
-    subscriptions: self => [
-      Sub(
-        () => MyRouter.init(el => self.send(ContentChanged(el))),
-        MyRouter.destroy,
-      ),
-    ],
   };
 };
 

@@ -8,7 +8,7 @@ let make = (_, ~phrase, ~num) => {
   ...component,
   render: _ => {
     let gotoHome = event => {
-      ReactEventRe.Mouse.preventDefault(event);
+      ReactEvent.Mouse.preventDefault(event);
       ReasonReact.Router.push("/");
     };
     <div>
