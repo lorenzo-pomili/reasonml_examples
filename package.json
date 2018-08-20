@@ -3,7 +3,9 @@
   "scripts": {
     "start": "webpack -w",
     "build": "bsb -make-world -w",
+    "build-no-third-part": "bsb -make -w",
     "clean": "bsb -clean-world",
+    "clean-no-third-part": "bsb -clean",
     "test": "bsb -make-world && ./node_modules/jest/bin/jest.js"
   },
   "dependencies": {
@@ -19,8 +21,8 @@
     "bs-fetch": "0.3.0",
     "bs-jest": "0.3.2",
     "@glennsl/bs-json": "3.0.0",
-    "bs-loader": "2.0.5",
-    "bs-platform": "4.0.3",
+    "bs-loader": "2.0.6",
+    "bs-platform": "4.0.5",
     "express": "4.16.3",
     "webpack": "4.16.5",
     "webpack-cli": "3.1.0"
