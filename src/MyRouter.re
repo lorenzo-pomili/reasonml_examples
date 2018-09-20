@@ -17,7 +17,7 @@ let getPageFromPath = path => {
   switch (route) {
   | Main => <Main />
   | SecondPage(phrase, num) =>
-    <SecondPage phrase=(Js.Global.decodeURI(phrase)) num />
+    <SecondPage phrase={Js.Global.decodeURI(phrase)} num />
   | NotFound => <Main />
   };
 };

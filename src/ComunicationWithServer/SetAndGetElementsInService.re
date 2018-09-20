@@ -61,29 +61,29 @@ let make = _ => {
   render: self =>
     <div>
       <div>
-        <div> (str("Add element")) </div>
+        <div> {str("Add element")} </div>
         <input
           type_="text"
-          value=self.state.currentInput
-          onChange=(event => self.send(UpdateInput(valueOfEvent(event))))
+          value={self.state.currentInput}
+          onChange={event => self.send(UpdateInput(valueOfEvent(event)))}
         />
         <button
-          disabled=(self.state.currentInput == "")
-          onClick=(_event => self.send(Add(self.state.currentInput)))>
-          (str("Add"))
+          disabled={self.state.currentInput == ""}
+          onClick={_event => self.send(Add(self.state.currentInput))}>
+          {str("Add")}
         </button>
-        <ListOfElements elementsList=self.state.data />
+        <ListOfElements elementsList={self.state.data} />
         <button
-          disabled=(List.length(self.state.data) == 0)
-          onClick=(_event => self.send(Save(self.state.data)))>
-          (str("Save"))
+          disabled={List.length(self.state.data) == 0}
+          onClick={_event => self.send(Save(self.state.data))}>
+          {str("Save")}
         </button>
       </div>
       <div>
-        <button onClick=(_event => self.send(GetFromServer))>
-          (str("Get"))
+        <button onClick={_event => self.send(GetFromServer)}>
+          {str("Get")}
         </button>
-        <ListOfElements elementsList=self.state.dataStorage />
+        <ListOfElements elementsList={self.state.dataStorage} />
       </div>
     </div>,
 };

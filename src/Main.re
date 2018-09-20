@@ -77,31 +77,31 @@ let make = _ => {
       ();
     };
     <div>
-      <h1> (str("Hello World")) </h1>
+      <h1> {str("Hello World")} </h1>
       <Hello />
       <br />
-      <h1> (str("Repeated Element")) </h1>
+      <h1> {str("Repeated Element")} </h1>
       <ListOfElements elementsList=mockList />
       <br />
-      <h1> (str("Elements getted from server")) </h1>
-      (
+      <h1> {str("Elements getted from server")} </h1>
+      {
         switch (self.state.dataForListOfElementsFromServer) {
         | Some(data) => <ListOfElements elementsList=data />
-        | None => <div> (str("loading...")) </div>
+        | None => <div> {str("loading...")} </div>
         }
-      )
+      }
       <br />
-      <h1> (str("Set and get elements from server")) </h1>
+      <h1> {str("Set and get elements from server")} </h1>
       <div style=styleBorder1pxSolidRed> <SetAndGetElementsInService /> </div>
       <br />
-      <h1> (str("Mixed language ToDoList")) </h1>
+      <h1> {str("Mixed language ToDoList")} </h1>
       <div style=styleBorder1pxSolidRed>
         <TodoList elementList=mockTodoElementList />
       </div>
       <div>
-        <button onClick=goToSecondPage> (str("SecondPage")) </button>
+        <button onClick=goToSecondPage> {str("SecondPage")} </button>
         <button onClick=goToSecondPageWithParams>
-          (str("SecondPage whit params"))
+          {str("SecondPage whit params")}
         </button>
       </div>
     </div>;

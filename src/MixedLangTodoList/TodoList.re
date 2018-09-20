@@ -12,10 +12,10 @@ let reactElementList = (elementList: list(TodoElement.todoElement)) =>
   List.map(
     element =>
       <TodoListElement
-        key=(
+        key={
           "singleTodoElementKey_"
           ++ string_of_int(TodoElement.get_id(element))
-        )
+        }
         todoElement=element
       />,
     elementList,
@@ -74,22 +74,22 @@ let make = (_, ~elementList) => {
     },
   render: self =>
     <div>
-      <TodoCounter elementList=self.state.filteredElementList />
+      <TodoCounter elementList={self.state.filteredElementList} />
       <TodoListFilterRe
-        ref=(self.handle(setSearchFilterRef))
-        onUpdate=(onFilterUpdate(self.send))
+        ref={self.handle(setSearchFilterRef)}
+        onUpdate={onFilterUpdate(self.send)}
       />
-      (
+      {
         ReasonReact.array(
           Array.of_list(reactElementList(self.state.filteredElementList)),
         )
-      )
+      }
       <div>
         <input
           placeholder="Insert new item"
           type_="text"
-          value=self.state.newElementDesc
-          onKeyDown=(
+          value={self.state.newElementDesc}
+          onKeyDown={
             e =>
               if (ReactEvent.Keyboard.key(e) === "Enter") {
                 self.send(AddElement);
@@ -104,15 +104,15 @@ let make = (_, ~elementList) => {
               } else {
                 ();
               }
-          )
-          onChange=(
+          }
+          onChange={
             event =>
               self.send(
                 UpdateNewElementDesc(ReactEvent.Form.target(event)##value),
               )
-          )
+          }
         />
-        <button onClick=(_ => self.send(AddElement))> (str("Add")) </button>
+        <button onClick={_ => self.send(AddElement)}> {str("Add")} </button>
       </div>
     </div>,
 };

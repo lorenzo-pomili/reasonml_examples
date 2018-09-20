@@ -12,16 +12,16 @@ let make = (_, ~phrase, ~num) => {
       ReasonReact.Router.push("/");
     };
     <div>
-      <h1> (string("SecondPage")) </h1>
+      <h1> {string("SecondPage")} </h1>
       <div>
-        <span> (str("Phrase: ")) </span>
-        <span> (str(phrase)) </span>
+        <span> {str("Phrase: ")} </span>
+        <span> {str(phrase)} </span>
       </div>
       <div>
-        <span> (str("Num: ")) </span>
-        <span> (str(string_of_int(num))) </span>
+        <span> {str("Num: ")} </span>
+        <span> {str(string_of_int(num))} </span>
       </div>
-      <a href="#" onClick=gotoHome> (string("Home")) </a>
+      <a href="#" onClick=gotoHome> {string("Home")} </a>
     </div>;
   },
 };
