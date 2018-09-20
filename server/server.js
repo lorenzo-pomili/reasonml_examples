@@ -4,6 +4,7 @@ const app = express();
 
 const filepath = __dirname+"/mockData.json";
 const filepathStorage = __dirname+"/dataStorage.json";
+const publicPath = __dirname+"/../public";
 
 app.use("/", express.static(__dirname + '/../public'));
 
@@ -46,7 +47,7 @@ app.post('/setData', (req, res) => {
 });
 
 app.all("*", function(req, res){
-    res.sendFile('index.html', { root: __dirname + '/../public' } );
+    res.sendFile('index.html', { root: publicPath } );
 });
 
 app.listen(8014);
