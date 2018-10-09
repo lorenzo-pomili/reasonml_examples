@@ -12,7 +12,5 @@ class TodoListFilter extends Component {
     );
   }
 };
-// can't be use atm (https://github.com/BuckleScript/bucklescript/issues/2067)
-// export default TodoListFilter
 
-module.exports = TodoListFilter;
+export default TodoListFilter;

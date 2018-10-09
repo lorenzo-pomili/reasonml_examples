@@ -1,5 +1,5 @@
-[@bs.module]
-external todoListFilter: ReasonReact.reactClass = "./TodoListFilter";
+[@bs.module "./TodoListFilter"]
+external todoListFilter: ReasonReact.reactClass = "default";
 
 let make = (~onUpdate, children) =>
   ReasonReact.wrapJsForReason(
