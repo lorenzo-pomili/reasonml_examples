@@ -98,6 +98,8 @@ let make = _ => {
       <div style=styleBorder1pxSolidRed>
         <TodoList elementList=mockTodoElementList />
       </div>
+      <h1> {str("Nested Element")} </h1>
+      <div style=styleBorder1pxSolidRed> <NestedElement /> </div>
       <div>
         <button onClick=goToSecondPage> {str("SecondPage")} </button>
         <button onClick=goToSecondPageWithParams>
