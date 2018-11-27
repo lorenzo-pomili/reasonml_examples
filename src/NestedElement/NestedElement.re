@@ -9,7 +9,7 @@ let make = _ => {
       </ContainerElement>
       <ContainerElement>
         {ReasonReact.string("First Nested Element")}
-        <div> {ReasonReact.string("Second Nested Element")} </div>
+        <div key="0"> {ReasonReact.string("Second Nested Element")} </div>
       </ContainerElement>
     </div>,
 };
